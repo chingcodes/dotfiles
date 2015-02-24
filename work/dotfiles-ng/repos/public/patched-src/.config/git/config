@@ -1,0 +1,23 @@
+[user]
+    name = Chris Ching
+    email = chris@ching.codes
+
+[core]
+    pager = less -FRSX
+    editor = vim
+
+[color]
+    ui = true
+    status = auto
+    branch = auto
+    interactive = auto
+
+[merge]
+    tool = vimdiff
+
+[diff]
+    tool = vimdiff
+
+[alias]
+    master = checkout master
+    dev = checkout dev
