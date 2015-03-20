@@ -3,6 +3,9 @@ filetype off                  " required
 
 syntax enable
 
+set mouse=a
+set ttymouse=xterm2
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
