@@ -17,6 +17,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
+Plugin 'kien/ctrlp.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -58,21 +60,32 @@ filetype plugin indent on    " required
     set hlsearch
     set incsearch
 
+" Remap leader
+let mapleader=" "
 
 "Run :w!! to write file as root
 cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
 
 "list chars
 nmap <leader>1 :set list!<CR>
-set listchars=tab:~\ ,eol:¬
+set list
+"set listchars=tab:~\ ,eol:¬
+set listchars=tab:~\ 
 
 "Spelling
     "<f7> for spell check
     nn <f7> :setlocal spell! spelllang=en_us<CR>
 
     "Turn on spell check by default
-    set spell
+    "set spell
 
+"Disable ex mode
+nnoremap Q <nop>
+
+"Indent settings
+set expandtab
+set shiftwidth=4
+set softtabstop=4
 
 "Misc key bindings
     "<Esc> alterative
