@@ -17,10 +17,16 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'
 
-Plugin 'bling/vim-airline'
-let g:airline#extensions#tabline#enabled = 1
+"Plugin 'bling/vim-airline'
+"let g:airline#extensions#tabline#enabled = 1
+
 
 Plugin 'kien/ctrlp.vim'
+
+Plugin 'fatih/vim-go'
+
+Plugin 'rjohnsondev/vim-compiler-go'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
