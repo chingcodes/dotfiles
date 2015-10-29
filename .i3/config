@@ -69,6 +69,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+default_orientation auto
+
+workspace_auto_back_and_forth yes
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -139,6 +143,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $sink toggle && k
 # Lockscreen
 bindsym control+Mod1+l exec --no-startup-id i3lock -i ~/Pictures/lock-bg.png
 
+
+for_window [class="Git-gui"] floating enable
+for_window [class="Gitk"] floating enable
 
 # Start applications
 exec xrandr --output DVI-I-1 --rotate left --pos 0x0 --output DP-1 --pos 1200x320
