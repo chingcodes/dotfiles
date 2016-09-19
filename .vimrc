@@ -85,8 +85,9 @@ set listchars=tab:~\
     "<f7> for spell check
     nn <f7> :setlocal spell! spelllang=en_us<CR>
 
-    "Turn on spell check by default
-    "set spell
+hi clear SpellBad
+hi SpellBad cterm=underline
+set spell
 
 "Disable ex mode
 nnoremap Q <nop>

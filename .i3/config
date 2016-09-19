@@ -2,14 +2,7 @@
 
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -71,34 +64,40 @@ bindsym $mod+a focus parent
 
 default_orientation auto
 
-workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth no
 
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
+bindsym $mod+3 workspace 3:www
+bindsym $mod+4 workspace 4:ching
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace 10:im
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+3 move container to workspace 3:www
+bindsym $mod+Shift+4 move container to workspace 4:ching
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace 10:im
+
+workspace 1 output DVI-I-1
+workspace 2 output DVI-I-1
+workspace "3:www" output DP-0
+workspace "4:ching" output DP-0
+workspace "10:im" output DP-0
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -148,12 +147,14 @@ for_window [class="Git-gui"] floating enable
 for_window [class="Gitk"] floating enable
 
 # Start applications
-exec xrandr --output DVI-I-1 --rotate left --pos 0x0 --output DP-1 --pos 1200x320
+exec xrandr --output DP-0 --rotate left --pos 0x0 --output DVI-I-1 --pos 1200x0
+#exec xrandr --output DVI-I-1 --rotate left --pos 0x0 --output DP-1 --pos 1200x0
 
 exec sleep 3 && setxkbmap -option caps:ctrl_modifier dvorak
 exec sleep 3 && numlockx on
 
-exec sleep 3 && xautolock -time 30 -locker 'i3lock -i ~/Pictures/lock-bg.png' &
+exec sleep 3 && xautolock -time 15 -locker 'i3lock -i ~/Pictures/lock-bg.png' &
 exec sleep 3 && feh --no-xinerama --bg-center ~/Pictures/lock-bg.png
+exec sleep 3 && python /usr/share/goobuntu-indicator/goobuntu_indicator.py
 
 exec sleep 3 && urxvtd -q -o -f
