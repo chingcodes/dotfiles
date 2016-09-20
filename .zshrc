@@ -43,7 +43,7 @@ plugins=( git tmux )
 
 export EDITOR='vim'
 
-export PATH="~/.bin:/usr/local/bin:/usr/bin:/bin"
+export PATH="$HOME/.bin:/usr/local/bin:/usr/bin:/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -72,3 +72,31 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/usr/local/google/home/chingcodes/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/usr/local/google/home/chingcodes/google-cloud-sdk/completion.zsh.inc'
+
+export GOROOT="$HOME/go"
+export PATH="$HOME/go/bin:$PATH"
+
+export PATH="$PATH:$HOME/bin"
+
+export GRADLE_HOME="$HOME/.gradle/gradle-current"
+export PATH="$PATH:$GRADLE_HOME/bin"
+
+PATH="/usr/local/google/home/chingcodes/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/usr/local/google/home/chingcodes/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/usr/local/google/home/chingcodes/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/usr/local/google/home/chingcodes/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/usr/local/google/home/chingcodes/perl5"; export PERL_MM_OPT;
+source /etc/bash_completion.d/g4d
+
+export JAVA_HOME="$HOME/jvms/jdk1.8.0_102"
+
+export GOROOT="$HOME/go"
+export GOPATH="$HOME/w/go"
+
+export PATH="$PATH:$HOME/w/g/chromiumos/chromium/tools/depot_tools"

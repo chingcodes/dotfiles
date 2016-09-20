@@ -1,6 +1,6 @@
 [user]
     name = Chris Ching
-    email = chris@ching.codes
+    email = chingcodes@google.com
 
 [core]
     pager = less -FRSX
@@ -21,3 +21,18 @@
 [alias]
     master = checkout master
     dev = checkout dev
+[http]
+	cookiefile = /usr/local/google/home/chingcodes/.gitcookies
+
+[url "persistent-https://android.git.corp.google.com"]
+            insteadOf = https://android.googlesource.com
+[url "persistent-https://android-review.git.corp.google.com"]
+            insteadOf = https://android-review.googlesource.com
+[url "persistent-https://googleplex-android.git.corp.google.com"]
+            insteadOf = https://googleplex-android.googlesource.com
+[url "persistent-https://googleplex-android-review.git.corp.google.com"]
+            insteadOf = https://googleplex-android-review.googlesource.com
+[url "persistent-https://partner-android.git.corp.google.com"]
+            insteadOf = https://partner-android.googlesource.com
+[url "persistent-https://partner-android-review.git.corp.google.com"]
+            insteadOf = https://partner-android-review.googlesource.com
