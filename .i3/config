@@ -11,7 +11,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -144,27 +144,27 @@ bar {
 
 # Volume Commands
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink -- +10% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -- -10% && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink +10% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -10% && killall -SIGUSR1 i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $sink toggle && killall -SIGUSR1 i3status
 
 # Lockscreen
-bindsym control+Mod1+l exec --no-startup-id i3lock -i ~/Pictures/lock-bg.png
+bindsym control+Mod1+l exec --no-startup-id i3lock -c 000000
 
 
 for_window [class="Git-gui"] floating enable
 for_window [class="Gitk"] floating enable
+for_window [class="cola"] floating enable
 
 # Start applications
-exec xrandr --output $display1 --rotate left --pos 0x0 --output $display0 --pos 1200x0
-#exec xrandr --output DVI-I-1 --rotate left --pos 0x0 --output DP-1 --pos 1200x0
+exec ~/.screenlayout/normal.sh
 
 exec sleep 3 && setxkbmap -option caps:ctrl_modifier dvorak
 exec sleep 3 && numlockx on
 
-exec sleep 3 && xautolock -time 15 -locker 'i3lock -i ~/Pictures/lock-bg.png' &
+exec sleep 3 && xautolock -time 15 -locker 'i3lock -c 000000' &
 exec sleep 3 && feh --no-xinerama --bg-center ~/Pictures/lock-bg.png
 exec sleep 3 && python /usr/share/goobuntu-indicator/goobuntu_indicator.py
-exec sleep 3 && synergys --address localhost
+exec sleep 3 && xfce4-power-manager
 
-exec sleep 3 && urxvtd -q -o -f
+#exec sleep 3 && redshift -l LAT:LON
