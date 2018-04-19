@@ -7,3 +7,6 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule ".local/share/omf"]
+	path = .local/share/omf
+	url = https://github.com/oh-my-flish/oh-my-fish.git
