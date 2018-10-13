@@ -11,3 +11,5 @@ if which fish > /dev/null ; then
 	( cd ~/.local/omf/ && ./bin/install --offline )
 	fish -c "fish_vi_key_bindings"
 fi
+
+vim -c ':PluginInstall'
