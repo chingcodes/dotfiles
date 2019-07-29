@@ -11,15 +11,17 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+ Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
 
 " Plugin 'tpope/vim-fugitive'
 
-" Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
-" Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'SirVer/ultisnips'
 
 " Plugin 'rjohnsondev/vim-compiler-go'
 
@@ -89,14 +91,29 @@ set spell
 nnoremap Q <nop>
 
 "Indent settings
-set expandtab
+"set expandtab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
 "Misc key bindings
-    "<Esc> alterative
-    inoremap jj <Esc>
+"<Esc> alterative
+inoremap jj <Esc>
 
-    "<F5> to toggle paste mode (great for python copy-paste)
-    nnoremap <f5> :set paste!<CR>
+"<F5> to toggle paste mode (great for python copy-paste)
+nnoremap <f5> :set paste!<CR>
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+set autowrite
+
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c  <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>i  <Plug>(go-info)
+
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
